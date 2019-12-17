@@ -198,12 +198,7 @@ room.onTeamGoal = (teamId) => {
     gameRunning = false;
     goalScored = true;
     pass = null;
-    const isOwnGoal = lastTouch.scorer.team !== teamId;
-    const color = isOwnGoal ? getOwnGoalTeamColorMessage(teamId) : getTeamColorMessage(teamId);
-    const reactions = room.getPlugin('tut/reactions');
-    const postfix  = isOwnGoal ? reactions.getShameString() : reactions.getGloryString();
-
-    room.sendAnnouncement(`${addGoal(teamId)}. ${postfix}`, null, color);
+    room.sendAnnouncement(`${addGoal(teamId)}`, null);
 };
 
 function addGoal(teamId) {
